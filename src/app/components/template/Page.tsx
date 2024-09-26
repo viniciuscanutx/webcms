@@ -1,3 +1,4 @@
+import Menu from "./Menu"
 
 /* Fazendo o elemento pagina aceitar elementos filhos. */
 export interface PaginaProps {
@@ -6,6 +7,9 @@ export interface PaginaProps {
 
 export default function Pagina(props: PaginaProps) {
     return (
-        <div>{props.children}</div>
+        <div className="flex">
+            <Menu />
+            <main className="flex-1 p-7">{props.children}</main>
+            </div>
     )
 }
