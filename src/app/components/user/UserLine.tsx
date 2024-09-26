@@ -16,7 +16,7 @@ export default function UserLine(props: UserLineProps) {
                 alt="Avatar"
             />
             <div className="flex flex-col gap-2">
-            <span>{props.user.nome}</span>
+            <span className="text-xl font-black">{props.user.nome}</span>
             <span className="text-sm text-zinc-400">{props.user.email}</span>
             </div>
             
