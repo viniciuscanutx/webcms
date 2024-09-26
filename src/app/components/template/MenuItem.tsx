@@ -10,8 +10,8 @@ export interface MenuItemProps {
 export default function MenuItem(props: MenuItemProps) {
     return (
         <Link href={props.url} className="flex gap-2 px-4 py-2 hover:bg-black hover:rounded-lg"> 
-        <props.icone size={24} stroke={1.8}/>
-        <span>{props.texto}</span>
+        <props.icone className="text-zinc-100" size={24} stroke={1.8}/>
+        <span className="text-zinc-100">{props.texto}</span>
         </Link>
     )
 }
