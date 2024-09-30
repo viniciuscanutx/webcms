@@ -1,25 +1,23 @@
 import { Users } from "@/core/model/Users";
-import { Usuario } from "@prisma/client";
-import { PrismaClient } from "@prisma/client/extension";
+import { Usuario, PrismaClient } from "@prisma/client";
 
 export default class UserRepository {
-    private static db: PrismaClient = new PrismaClient()
-
+    // Instância do PrismaClient
+    private static db: PrismaClient = new PrismaClient();
+    // Obtém todos os usuários
     static async obterTodos(): Promise<Usuario[]> {
-        return await this.db.usuario.findMany()
+        return await this.db.usuario.findMany(); // Verifique o nome do modelo no schema.prisma (deve ser 'usuario' ou 'Usuario')
     }
-
+    // Salva ou atualiza um usuário
     static async salvar(usuario: Users): Promise<Usuario> {
-        return await this.db.usuario.upsert( {
+        return await this.db.usuario.upsert({
             where: { id: usuario.id },
-            update: usuario, 
+            update: usuario,
             create: usuario
-        })
+        });
     }
-
-    static async obterPorId(id: string): Promise<Usuario> {
-        const usuario = await this.db.usuario.findUnique({ where: {id} })
-        return usuario as Usuario
+    // Obtém um usuário por ID
+    static async obterPorId(id: string): Promise<Usuario | null> {
+        return await this.db.usuario.findUnique({ where: { id } }); // Retorna null se não encontrar
     }
-
 }
