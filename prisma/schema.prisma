@@ -12,5 +12,4 @@ model Usuario {
   email String @unique
   poster String
   nome String
-  senha String
 }
