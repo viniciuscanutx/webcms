@@ -7,14 +7,37 @@ import User from "@/app/data/constants/users";
 import { IconMovie } from "@tabler/icons-react";
 import { useState } from "react";
 import { Users } from "@/core/model/Users";
+import Backend from "@/backend";
 
 export default function Page() {
-    const [usuario, setUsuario] = useState<Users>(User[0])
+    const [usuarios, setUsuarios] = useState<Users[]>([])
+    const [usuario, setUsuario] = useState<Partial<Users> | null>(null)
+
+    function salvar() {
+        if (!usuario) return
+        Backend.usuarios.salvar(usuario)
+    }
+
+    function excluir() {
+
+    }
+
     return (
         <Pagina className="flex flex-col gap-20">
-            <Title icone={IconMovie} principal="Filmes" secundario="Cadastro de Filmes"/>
+            <Title icone={IconMovie} principal="Filmes" secundario="Cadastro de Filmes" />
             {/* <UserList /> */}
-            <FormUsers usuario={usuario} onChange={setUsuario} />
+            {usuario ? (
+                <FormUsers
+                    usuario={usuario}
+                    onChange={setUsuario}
+                    salvar={salvar}
+                    excluir={excluir}
+                    cancelar={() => setUsuario(null)}
+                />
+            ) : (
+                <UserList onClick={setUsuario}/>
+            )}
+
         </Pagina>
     )
 }

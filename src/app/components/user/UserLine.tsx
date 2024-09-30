@@ -3,11 +3,12 @@ import Image from "next/image"
 
 export interface UserLineProps {
     user: Users
+    onClick?: (usuario: Users) => void
 }
 
 export default function UserLine(props: UserLineProps) {
     return (
-        <div className="flex  bg-zinc-900 items-center gap-5 rounded-md p-4">
+        <div className="flex  bg-zinc-900 items-center gap-5 rounded-md p-4 cursor-pointer" onClick={() => props.onClick?.(props.user)}>
             <Image 
                 src={props.user.poster}
                 width={80}
