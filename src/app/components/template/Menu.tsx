@@ -7,7 +7,7 @@ export default function Menu() {
         <aside className="w-72 bg-zinc-900 h-screen">
             <nav className="flex flex-col gap-1 py-12">
                 <MenuItem icone={IconHome} texto="Inicio" url="/" />
-                <MenuItem icone={IconMovie} texto="Cadastrar Filme" url="/users" />
+                <MenuItem icone={IconMovie} texto="Lista de Filmes" url="/users" />
             </nav>
         </aside>
     )
