@@ -24,7 +24,7 @@ export default function Page() {
 
     return (
         <Pagina className="flex flex-col gap-20">
-            <Title icone={IconMovie} principal="Filmes" secundario="Cadastro de Filmes" />
+            <Title icone={IconMovie} principal="Filmes" secundario="Lista de Filmes" />
             {/* <UserList /> */}
             {usuario ? (
                 <FormUsers
