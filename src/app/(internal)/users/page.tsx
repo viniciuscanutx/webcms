@@ -24,8 +24,12 @@ export default function Page() {
         setUsuario(null)
     }
 
-    function excluir() {
-
+    async function excluir() {
+        if (!usuario || !usuario.id) return
+        await Backend.usuarios.excluir(usuario.id)
+        const usuarios = await Backend.usuarios.obter()
+        setUsuarios(usuarios)
+        setUsuario(null)
     }
 
     return (

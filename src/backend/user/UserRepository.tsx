@@ -20,4 +20,10 @@ export default class UserRepository {
     static async obterPorId(id: string): Promise<Usuario | null> {
         return await this.db.usuario.findUnique({ where: { id } }); // Retorna null se não encontrar
     }
+
+    static async excluir(id: string): Promise<void> {
+        await this.db.usuario.delete({
+            where: {id},
+        })
+    }
 }

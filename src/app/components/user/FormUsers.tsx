@@ -33,9 +33,24 @@ export default function FormUsers(props: FormUsersProps) {
             onChange={
                 (e) => props.onChange?.({ ...props.usuario, email: e.target.value })} 
             />
-           <div className="flex gap-5">
-                <button className="bg-blue-500 px-4 py-2 rounded-md" onClick={props.salvar}>Salvar</button>
-                <button className="bg-zinc-500 px-4 py-2 rounded-md" onClick={props.cancelar}>Cancelar</button>
+           <div className="flex justify-between">
+                <div className="flex gap-5">
+                <button 
+                className="bg-blue-500 px-4 py-2 rounded-md" 
+                onClick={props.salvar}>
+                    Salvar
+                </button>
+                <button 
+                className="bg-zinc-500 px-4 py-2 rounded-md" 
+                onClick={props.cancelar}>
+                    Cancelar
+                </button>
+                </div>
+                <button 
+                className="bg-red-500 px-4 py-2 rounded-md" 
+                onClick={props.excluir}>
+                    Excluir
+                </button>
            </div>
         </div>
     )
