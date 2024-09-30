@@ -3,5 +3,4 @@ export interface Users {
     email: string 
     poster: string
     nome: string
-    senha: string
 }
