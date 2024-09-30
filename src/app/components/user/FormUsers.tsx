@@ -3,10 +3,11 @@ import InputText from "../shared/InputText"
 import TextArea from "../shared/TextArea"
 
 export interface FormUsersProps {
-    usuario: Users
-    onChange: (usuario: Users) => void
-    onSave: () => void
-    onCancel: () => void
+    usuario: Partial<Users>
+    onChange: (usuario: Partial<Users>) => void
+    salvar: () => void
+    cancelar: () => void
+    excluir: () => void
 }
 
 export default function FormUsers(props: FormUsersProps) {
